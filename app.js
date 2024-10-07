@@ -31,12 +31,6 @@ app.use( '/api/v1/users', userRouter )
 //connect to databaseexpress. and start server
 const start = ( async () =>
 {
-    const cors = require( 'cors' );
-    const xss = require( 'xss-clean' );
-    const helmet = require( 'helmet' );
-
-
-    
     const port = process.env.PORT
     const uri = process.env.MONGO_URI ;
     try {
