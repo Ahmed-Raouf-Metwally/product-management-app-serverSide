@@ -21,7 +21,7 @@ app.use('/api/v1/users', userRouter)
 //connect to database and start server
 const start = (async () => {
     const port = process.env.PORT || 3000
-    const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ODC';
+    const uri = process.env.MONGO_URI ;
     try {
         
         //connect DB
