@@ -20,7 +20,7 @@ app.use('/api/v1/users', userRouter)
 
 //connect to database and start server
 const start = (async () => {
-    const port = process.env.PORT || 3000
+    const port = process.env.PORT
     const uri = process.env.MONGO_URI ;
     try {
         

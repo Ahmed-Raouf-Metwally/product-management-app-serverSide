@@ -5,8 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.ja",
+    "dev": "nodemon app.js",
     "start": "node app.js"
+  },
+  "engines": {
+    "node": "20.0.0"
   },
   "keywords": [],
   "author": "",
