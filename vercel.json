@@ -6,12 +6,6 @@
             "use": "@now/node"
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "app.js"
-        }
-    ],
     "rewrites": [
         {
             "source": "/(.*)",
