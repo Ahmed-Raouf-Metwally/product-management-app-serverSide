@@ -40,6 +40,12 @@ app.use(limiter);
 
 
 //routes
+app.get( '/',
+    ( req, res) =>
+    {
+        res.send( 'Welcome')
+    }
+)
 app.use( '/api/v1/products', productsRouter )
 app.use( '/api/v1/users', userRouter )
 
