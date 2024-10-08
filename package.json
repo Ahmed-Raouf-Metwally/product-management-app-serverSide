@@ -1,18 +1,21 @@
 {
-  "name": "s9",
+  "name": "product-management-app",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon start",
+    "start": "node app.js",
+    "deploy": "git add . && git commit -m commit from CODE && git push -u origin main"
+
   },
   "engines": {
-    "node": "20.17.0"
+    "node": "20.17.0",
+    "npm": "9.9.3"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ahmed_Raouf",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -30,5 +33,8 @@
     "rate-limiter": "^0.2.0",
     "s9": "file:",
     "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
