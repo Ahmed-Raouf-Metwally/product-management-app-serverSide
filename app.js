@@ -21,7 +21,12 @@ const app = express()
 app.use( express.json() )
 app.use( cookieParser() )
 app.use( express.static( path.join( __dirname, "" ) ) )
-app.use( cors() );
+app.use(
+    cors( {
+        origin: 'http://localhost:4200',
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        credentials: true
+        }));
 app.use( xss() );
 app.use(
     helmet.contentSecurityPolicy( {
@@ -31,21 +36,14 @@ app.use(
     } ),
 ); app.use( compression() ); // Compress all routes
 // Set up rate limiter: maximum of twenty requests per minute
-const limiter = RateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 20,
-});
+const limiter = RateLimit( {
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 20,
+} );
 // Apply rate limiter to all requests
-app.use(limiter);
-
+app.use( limiter );
 
 //routes
-app.get( '/',
-    ( req, res) =>
-    {
-        res.send( 'Welcome')
-    }
-)
 app.use( '/api/v1/products', productsRouter )
 app.use( '/api/v1/users', userRouter )
 

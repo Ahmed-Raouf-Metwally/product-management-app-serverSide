@@ -35,7 +35,7 @@ let postNewProduct = async ( req, res ) =>
     {
         let newProduct = req.body
         let imgFile = req.file
-        // req.body.productImg = JSON.stringify(imgFile?.path) 
+        req.body.productImg = JSON.stringify(imgFile?.path) 
         // console.log(req.body.productImg);
 
         let validationErrors = validationResult( req )
@@ -47,7 +47,11 @@ let postNewProduct = async ( req, res ) =>
             console.log( newProduct );
             res
                 .status( StatusCodes.CREATED )
-                .json( newProduct )
+                .json( {
+                    status: statsMassages.SUCCESS,
+                    data: newProduct
+                    
+                } )
         }
         else
         {
@@ -56,8 +60,16 @@ let postNewProduct = async ( req, res ) =>
     }
     catch ( err )
     {
-
-        errorHandler( res, err )
+        res
+            .status( StatusCodes.NOT_FOUND )
+            .json(
+                {
+                    msg: err,
+                    success: false,
+                    status: 404,
+                    data: null
+                }
+            )
     }
 }
 
