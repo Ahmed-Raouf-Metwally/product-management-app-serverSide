@@ -35,7 +35,7 @@ let postNewProduct = async ( req, res ) =>
     {
         let newProduct = req.body
         let imgFile = req.file
-        req.body.productImg = JSON.stringify(imgFile?.path) 
+        req.body.productImg = JSON.stringify( imgFile?.path )
         // console.log(req.body.productImg);
 
         let validationErrors = validationResult( req )
@@ -50,7 +50,7 @@ let postNewProduct = async ( req, res ) =>
                 .json( {
                     status: statsMassages.SUCCESS,
                     data: newProduct
-                    
+
                 } )
         }
         else
@@ -90,7 +90,10 @@ let updateProductByID = async ( req, res ) =>
 
         res
             .status( StatusCodes.OK )
-            .json( newProduct )
+            .json( {
+                status: statsMassages.SUCCESS,
+                data: singleProduct
+            } )
     }
 
     catch ( err )
